@@ -1,14 +1,21 @@
 import './App.css';
+import PatientList from './components/PatientList';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 function App() {
+  const queryClient = new QueryClient();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1 className="text-xl font-bold underline">
-          Hello world!
+    <QueryClientProvider client={queryClient}>
+      <div className="App">
+        <h1 className="text-3xl font-semibold mt-8 mb-4">
+          Patient list:
         </h1>
-      </header>
-    </div>
+        <div>
+          <PatientList/>
+        </div>
+      </div>
+    </QueryClientProvider>
   );
 }
 
