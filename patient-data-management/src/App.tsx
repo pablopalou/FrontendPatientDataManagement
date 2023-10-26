@@ -2,9 +2,9 @@ import './App.css';
 import PatientList from './components/PatientList';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
-function App() {
-  const queryClient = new QueryClient();
+const queryClient = new QueryClient();
 
+function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="App">
