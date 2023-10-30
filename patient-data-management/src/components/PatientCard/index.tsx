@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IPatient } from '../../types/Patient';
+import { IPatient } from '~/types/Patient';
 
 interface PatientCardProps {
   patient: IPatient;

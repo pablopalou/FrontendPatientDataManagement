@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import usePatients from '../../hooks/usePatients';
 import PatientCard from '../PatientCard';
 import PatientModal from '../PatientModal';
-import { IPatient } from '../../types/Patient';
+import { IPatient } from '~/types/Patient';
 
 const PatientList: React.FC = () => {
     const { patients: initialPatients, isLoading, error } = usePatients();
