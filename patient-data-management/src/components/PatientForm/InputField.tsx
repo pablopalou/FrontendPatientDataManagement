@@ -6,9 +6,10 @@ type InputFieldProps = {
   register: UseFormRegister<any>;
   name: string;
   errors: Record<string, any>;
+  type?: string;
 };
 
-const InputField: React.FC<InputFieldProps> = ({ label, register, name, errors }) => {
+const InputField: React.FC<InputFieldProps> = ({ label, register, name, errors, type = 'text' }) => {
     const inputClasses = twMerge(
       'border p-2 w-full',
       errors[name] ? 'border-red-500' : 'border-gray-300'
@@ -19,7 +20,7 @@ const InputField: React.FC<InputFieldProps> = ({ label, register, name, errors }
         <label htmlFor={name}>{label}:</label>
         <input
           id={name}
-          type="text"
+          type={type}
           {...register(name)}
           className={inputClasses}
         />
