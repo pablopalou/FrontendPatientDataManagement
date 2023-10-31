@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { IPatient } from '../../types/Patient';
+import { IPatient } from '~/types/Patient';
 
 interface PatientCardProps {
   patient: IPatient;
+  onEdit: () => void;
 }
 
-const PatientCard: React.FC<PatientCardProps> = ({ patient }) => {
+const PatientCard: React.FC<PatientCardProps> = ({ patient, onEdit }) => {
   const [showDetails, setShowDetails] = useState(false);
 
   const toggleDetails = () => {
@@ -13,12 +14,17 @@ const PatientCard: React.FC<PatientCardProps> = ({ patient }) => {
   };
 
   return (
-    <div className="bg-white shadow-2xl rounded-lg p-6 mb-4 border border-gray-200">
+    <div className="bg-white shadow-2xl rounded-lg p-6 mb-4 border border-gray-200 mx-4">
       <div className="flex justify-between items-center">
         <h2 className="text-xl font-bold">{patient.name}</h2>
-        <button onClick={toggleDetails} className="text-blue-500">
-          {showDetails ? 'Hide Details' : 'Show Details'}
-        </button>
+        <div className='flex flex-col'>
+            <button onClick={toggleDetails} className="text-blue-500">
+            {showDetails ? 'Hide Details' : 'Show Details'}
+            </button>
+            <button onClick={onEdit} className="text-yellow-500">
+                Edit
+            </button>
+        </div>
       </div>
       {showDetails && (
         <div className="mt-4">
